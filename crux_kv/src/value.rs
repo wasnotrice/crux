@@ -1,3 +1,4 @@
+use facet::Facet;
 use serde::{Deserialize, Serialize};
 
 /// The value stored under a key.
@@ -6,7 +7,8 @@ use serde::{Deserialize, Serialize};
 ///
 /// Note: we can't use `Option` here because generics are not currently
 /// supported across the FFI boundary, when using the builtin typegen.
-#[derive(Clone, Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Facet, Clone, Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[repr(C)]
 pub enum Value {
     None,
     Bytes(#[serde(with = "serde_bytes")] Vec<u8>),

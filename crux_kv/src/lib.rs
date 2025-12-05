@@ -87,13 +87,15 @@ impl std::fmt::Debug for KeyValueOperation {
 ///
 /// Note: we can't use `Result` and `Option` here because generics are not currently
 /// supported across the FFI boundary, when using the builtin typegen.
-#[derive(Clone, Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Facet, Clone, Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[repr(C)]
 pub enum KeyValueResult {
     Ok { response: KeyValueResponse },
     Err { error: KeyValueError },
 }
 
-#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[derive(Facet, Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[repr(C)]
 pub enum KeyValueResponse {
     /// Response to a `KeyValueOperation::Get`,
     /// returning the value stored under the key, which may be empty
