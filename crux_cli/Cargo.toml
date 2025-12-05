@@ -1,6 +1,6 @@
 [package]
 name = "crux_cli"
-version = "0.1.1"
+version = "0.1.2"
 description = "Command line tool for crux_core"
 authors.workspace = true
 edition.workspace = true
@@ -21,7 +21,7 @@ cargo_metadata = "=0.19"
 clap = { version = "4.5.45", features = ["derive", "env"] }
 convert_case = "0.8.0"
 env_logger = "0.11.8"
-guppy = "0.17.20"
+guppy = "0.17.23"
 iter_tools = "0.37.0"
 lazy-regex = "3.4.1"
 log = "0.4.27"
